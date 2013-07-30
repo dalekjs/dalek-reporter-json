@@ -31,11 +31,69 @@ var path = require('path');
 var reporter = null;
 
 /**
- * JSON reporter
+ * The JSON reporter can produce a file with the results of your testrun.
+ *
+ * The reporter can be installed with the following command:
+ * ```
+ * $ npm install dalek-reporter-json --save-dev
+ * ```
+ *
+ * The file will follow the following format. This is a first draft and will
+ * definitly change in future versions.
+ *
+ * ```javascript
+ * {
+ *   "tests": [
+ *         {
+ *           "id": "test806",
+ *           "name": "Can get !url (OK, TDD style, message, chained)",
+ *           "browser": "Chrome",
+ *           "status": true,
+ *           "passedAssertions": 1,
+ *           "failedAssertions": 0,
+ *           "actions": [
+ *               {
+ *                   "value": "http://localhost:5000/index.html",
+ *                   "type": "open",
+ *                   "uuid": "6ea84fc0-58bf-4e1f-bb9c-f035c6e6fae2",
+ *                   "kind": "action",
+ *                   "isAction": true
+ *               },
+ *               {
+ *                   "success": true,
+ *                   "expected": "http://localhost:5000/guinea.html",
+ *                   "value": "http://localhost:5000/index.html",
+ *                   "message": "Url is not whatever",
+ *                   "type": "url",
+ *                   "kind": "assertion",
+ *                   "isAssertion": true
+ *               }
+ *           ]
+ *       }
+ *   ],
+ *   "elapsedTime": {
+ *       "minutes": 1,
+ *       "seconds": 43.328535046
+ *   },
+ *   "status": true,
+ *   "assertions": 1,
+ *   "assertionsFailed": 0,
+ *   "assertionsPassed": 1
+ * }
+ * ```
+ *
+ * By default the file will be written to `report/dalek.json`,
+ * you can change this by adding a config option to the your Dalekfile
+ *
+ * ```javascript
+ * "json-reporter": {
+ *   "dest": "your/folder/your_file.json"
+ * }
+ * ```
  *
  * @class Reporter
  * @constructor
- * @part json
+ * @part JSON
  * @api
  */
 
