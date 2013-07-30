@@ -101,6 +101,7 @@ function Reporter (opts) {
   this.events = opts.events;
   this.config = opts.config;
   this.data = {};
+  this.actionQueue = [];
   this.data.tests = [];
   this.browser = null;
 
