@@ -28,6 +28,7 @@
 var fs = require('fs');
 var path = require('path');
 
+// int. global
 var reporter = null;
 
 /**
