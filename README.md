@@ -128,3 +128,7 @@ Copyright (c) 2013 Sebastian Golasch
 
 Distributed under [MIT license](https://github.com/dalekjs/dalek-reporter-json/blob/master/LICENSE-MIT)
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/dalekjs/dalek-reporter-json/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
