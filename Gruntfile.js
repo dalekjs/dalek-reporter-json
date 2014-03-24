@@ -1,4 +1,3 @@
-/* jshint camelcase: false */
 module.exports = function (grunt) {
   'use strict';
 
@@ -64,7 +63,7 @@ module.exports = function (grunt) {
           },
         },
         src: 'report/docs/*.html',
-        dest: '.'
+        dest: './'
       }
     },
 
@@ -125,7 +124,6 @@ module.exports = function (grunt) {
   // load 3rd party tasks
   require('load-grunt-tasks')(grunt);
   grunt.loadTasks('./node_modules/dalek-build-tools/tasks');
-  grunt.loadNpmTasks('grunt-documantix');
 
   // define runner tasks
   grunt.registerTask('lint', 'jshint');
