@@ -258,7 +258,7 @@ Reporter.prototype = {
      data.kind = 'message';
     var logData = {
       "kind" : "message",
-      "message" : data.replace(/MESSAGE: /g, '')
+      "message" : data 
     };
     this.actionQueue.push(logData);
     return this;
