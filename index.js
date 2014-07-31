@@ -140,6 +140,7 @@ Reporter.prototype = {
     this.events.on('report:test:started', this.testStarted.bind(this));
     this.events.on('report:test:finished', this.testFinished.bind(this));
     this.events.on('report:runner:finished', this.runnerFinished.bind(this));
+    this.events.on('report:log:user',this.messagelog.bind(this));
     return this;
   },
 
@@ -245,6 +246,24 @@ Reporter.prototype = {
     fs.writeFileSync(this.dest, contents, 'utf8');
     return this;
   },
+
+   /**
+   * Generates JSON for a message.log
+   *
+   * @method assertion
+   * @param {object} data Event data
+   * @chainable
+   */  
+  messageLog : function(data) {
+     data.kind = 'message';
+    var logData = {
+      "kind" : "message",
+      "message" : data.replace(/MESSAGE: /g, '')
+    };
+    this.actionQueue.push(logData);
+    return this;
+  },
+
 
   /**
    * Helper method to generate deeper nested directory structures
