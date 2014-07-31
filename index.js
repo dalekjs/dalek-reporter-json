@@ -141,6 +141,7 @@ Reporter.prototype = {
     this.events.on('report:test:finished', this.testFinished.bind(this));
     this.events.on('report:runner:finished', this.runnerFinished.bind(this));
     this.events.on('report:log:user',this.messageLog.bind(this));
+    this.events.on('report:screenshot',this.screenshot.bind(this));
     return this;
   },
 
@@ -253,16 +254,28 @@ Reporter.prototype = {
    * @method assertion
    * @param {object} data Event data
    * @chainable
-   */  
+   */
   messageLog : function(data) {
-     data.kind = 'message';
     var logData = {
       "kind" : "message",
-      "message" : data 
+      "message" : data
     };
     this.actionQueue.push(logData);
     return this;
   },
+
+  /**
+  * Generates JSON for a screenshot
+  *
+  * @method assertion
+  * @param {object} data Event data
+  * @chainable
+  */
+ messageLog : function(data) {
+   data.kind = 'screenshot';
+   this.actionQueue.push(data);
+   return this;
+ },
 
 
   /**
