@@ -271,7 +271,7 @@ Reporter.prototype = {
   * @param {object} data Event data
   * @chainable
   */
- messageLog : function(data) {
+  screenshot : function(data) {
    data.kind = 'screenshot';
    this.actionQueue.push(data);
    return this;
