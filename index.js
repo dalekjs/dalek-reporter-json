@@ -140,7 +140,7 @@ Reporter.prototype = {
     this.events.on('report:test:started', this.testStarted.bind(this));
     this.events.on('report:test:finished', this.testFinished.bind(this));
     this.events.on('report:runner:finished', this.runnerFinished.bind(this));
-    this.events.on('report:log:user',this.messagelog.bind(this));
+    this.events.on('report:log:user',this.messageLog.bind(this));
     return this;
   },
 
