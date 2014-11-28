@@ -249,33 +249,35 @@ Reporter.prototype = {
   },
 
    /**
-   * Generates JSON for a message.log
-   *
-   * @method assertion
-   * @param {object} data Event data
-   * @chainable
-   */
-  messageLog : function(data) {
+    * Generates JSON for a message.log
+    *
+    * @method assertion
+    * @param {object} data Event data
+    * @chainable
+    */
+
+  messageLog: function(data) {
     var logData = {
-      "kind" : "message",
-      "message" : data
+      kind: 'message',
+      message: data
     };
     this.actionQueue.push(logData);
     return this;
   },
 
   /**
-  * Generates JSON for a screenshot
-  *
-  * @method assertion
-  * @param {object} data Event data
-  * @chainable
-  */
+   * Generates JSON for a screenshot
+   *
+   * @method assertion
+   * @param {object} data Event data
+   * @chainable
+   */
+
   screenshot : function(data) {
-   data.kind = 'screenshot';
-   this.actionQueue.push(data);
-   return this;
- },
+    data.kind = 'screenshot';
+    this.actionQueue.push(data);
+    return this;
+  },
 
 
   /**
